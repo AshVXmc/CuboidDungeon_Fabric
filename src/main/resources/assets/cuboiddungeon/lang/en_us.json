@@ -1,0 +1,30 @@
+{
+  "item.cuboiddungeon.food_ration": "Ration of food",
+  "item.cuboiddungeon.pasty": "Pasty",
+  "item.cuboiddungeon.dagger": "Dagger",
+  "item.cuboiddungeon.raw_rat_meat": "Raw rat meat",
+  "item.cuboiddungeon.cooked_rat_meat": "Cooked rat meat",
+  "item.cuboiddungeon.breezefruit": "Breezefruit",
+  "item.cuboiddungeon.breezefruit_roll": "Breezefruit roll",
+  "item.cuboiddungeon.breezefruit_pie": "Breezefruit pie",
+  "item.cuboiddungeon.breezefruit_tea": "Breezefruit Tea",
+
+  "block.cuboiddungeon.dungeon_brick_wall": "Dungeon brick wall",
+  "block.cuboiddungeon.dungeon_brick_wall_mossy": "Mossy dungeon brick wall",
+  "block.cuboiddungeon.dungeon_brick_wall_cracked": "Cracked Dungeon brick wall",
+  "block.cuboiddungeon.dungeon_brick_wall_chiseled": "Chiseled dungeon brick wall",
+
+  "itemGroup.cuboiddungeon.dungeon_items": "Dungeon Items",
+  "itemGroup.cuboiddungeon.dungeon_consumables": "Dungeon Consumables",
+  "itemGroup.cuboiddungeon.dungeon_monsters": "Dungeon Monsters",
+
+  "item.dagger.tooltip": "A small dagger made of iron and a wooden handle.",
+  "item.poisoned_dagger.tooltip": "A poisonous dagger that inflicts poison. Lasts 5 seconds",
+
+  "item.cuboiddungeon.marsupial_rat_spawn_egg": "Marsupial Rat Spawn Egg",
+  "entity.cuboiddungeon.marsupial_rat": "Marsupial rat",
+  "item.cuboiddungeon.rheum_slime_spawn_egg": "Rheum Slime Spawn Egg",
+  "entity.cuboiddungeon.rheum_slime": "Rheum Slime",
+  "item.cuboiddungeon.dungeon_snake_spawn_egg": "Dungeon Snake Spawn Egg",
+  "entity.cuboiddungeon.dungeon_snake": "Dungeon snake"
+}
