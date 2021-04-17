@@ -1,6 +1,5 @@
 package com.ashvxmc.cuboiddungeon.items;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 

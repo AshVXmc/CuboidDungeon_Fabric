@@ -26,7 +26,7 @@ public class Cuboiddungeon implements ModInitializer {
     // Universal mod ID
     public static final String MOD_ID = "cuboiddungeon";
 
-    // Custom Item class registries
+    // Custom Item class registries (EXCLUDING WEAPONS)
     public static final BreezefruitTea BREEZEFRUIT_TEA = new BreezefruitTea(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).maxCount(1));
 
     // Item group registries
@@ -71,7 +71,7 @@ public class Cuboiddungeon implements ModInitializer {
         // Register Items with custom classes (INCLUDING WEAPONS)
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","breezefruit_tea"), BREEZEFRUIT_TEA);
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon", "dagger"), new Dagger(new ToolMaterials()));
-        // Registry.register(Registry.ITEM, new Identifier("cuboiddungeon", "_poisoned_dagger"), new PoisonedDagger(new ToolMaterials()));
+        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","poisoned_dagger"), new PoisonedDagger(new ImbuedDaggerMaterials()));
 
         // Register mob behaviors
         FabricDefaultAttributeRegistry.register(MARSUPIAL_RAT, MarsupialRatEntity.createMobAttributes());

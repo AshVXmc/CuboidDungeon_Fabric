@@ -17,20 +17,20 @@ import java.util.List;
 
 public class PoisonedDagger extends SwordItem {
 
-    public PoisonedDagger(ToolMaterials material) {
+    public PoisonedDagger(ImbuedDaggerMaterials material) {
         super(material,1,-2.2f,new Settings().group(Cuboiddungeon.DUNGEON_ITEMS));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(new TranslatableText("item.poisoned_dagger.tooltip").formatted(Formatting.DARK_GREEN));
+        tooltip.add(new TranslatableText("item.poisoned_dagger.tooltip").formatted(Formatting.DARK_PURPLE));
     }
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        // HELP AAAAAAAAAAAAAAAAAAAAAAAAA
-        target.applyStatusEffect(new StatusEffectInstance(StatusEffects.POISON,5,1));
+        // effect duration is in ticks (20 ticks = 1 second)
+        target.applyStatusEffect(new StatusEffectInstance(StatusEffects.POISON,100,1));
         return super.postHit(stack, target, attacker);
     }
 
