@@ -98,6 +98,10 @@ public class DungeonSnakeEntity extends PathAwareEntity implements IAnimatable {
             return false;
         }
     }
+    // Poison immunity
+    public boolean canHaveStatusEffect(StatusEffectInstance effect) {
+        return effect.getEffectType() != StatusEffects.POISON && super.canHaveStatusEffect(effect);
+    }
 
     @Nullable
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable CompoundTag entityTag) {
