@@ -6,6 +6,7 @@ import com.ashvxmc.cuboiddungeon.entities.RheumSlimeEntity;
 import com.ashvxmc.cuboiddungeon.items.*;
 import com.ashvxmc.cuboiddungeon.registry.ModBlocks;
 import com.ashvxmc.cuboiddungeon.registry.ModItems;
+import com.ashvxmc.cuboiddungeon.status_effects.RageStatusEffect;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -14,6 +15,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -62,6 +64,9 @@ public class Cuboiddungeon implements ModInitializer {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DungeonSnakeEntity::new).dimensions(EntityDimensions.fixed(0.5f,0.75f)).build()
     );
 
+    // Custom status effects
+    public static final StatusEffect RAGE = new RageStatusEffect();
+
     @Override
     public void onInitialize() {
         ModItems.registerItems();
@@ -77,5 +82,8 @@ public class Cuboiddungeon implements ModInitializer {
         FabricDefaultAttributeRegistry.register(MARSUPIAL_RAT, MarsupialRatEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(RHEUM_SLIME, RheumSlimeEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(DUNGEON_SNAKE, DungeonSnakeEntity.createMobAttributes());
+
+        // Register custom status effects
+        Registry.register(Registry.STATUS_EFFECT, new Identifier("cuboiddungeon","rage"), RAGE);
     }
 }

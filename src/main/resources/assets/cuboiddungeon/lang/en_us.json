@@ -31,5 +31,7 @@
   "item.cuboiddungeon.rheum_slime_spawn_egg": "Rheum Slime Spawn Egg",
   "entity.cuboiddungeon.rheum_slime": "Rheum Slime",
   "item.cuboiddungeon.dungeon_snake_spawn_egg": "Dungeon Snake Spawn Egg",
-  "entity.cuboiddungeon.dungeon_snake": "Dungeon snake"
+  "entity.cuboiddungeon.dungeon_snake": "Dungeon snake",
+
+  "effect.cuboiddungeon.rage": "Rage"
 }
