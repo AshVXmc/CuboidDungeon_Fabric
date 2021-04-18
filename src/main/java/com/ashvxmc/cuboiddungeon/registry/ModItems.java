@@ -11,7 +11,7 @@ public class ModItems {
     // Food items
     public static final Item FOOD_RATION = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(10).saturationModifier(5f).meat().build()));
     public static final Item PASTY = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(10).saturationModifier(5f).meat().build()));
-    public static final Item RAW_RAT_MEAT = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(10).saturationModifier(1.5f).meat().statusEffect(new StatusEffectInstance(StatusEffects.POISON,20*3),1).build()));
+    public static final Item RAW_RAT_MEAT = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(10).saturationModifier(1.5f).meat().statusEffect(new StatusEffectInstance(StatusEffects.POISON,20*3),0.5f).build()));
     public static final Item COOKED_RAT_MEAT = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(6).saturationModifier(2.5f).meat().build()));
     public static final Item BREEZEFRUIT = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.8f).snack().build()));
     public static final Item BREEZEFRUIT_ROLL = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(5).saturationModifier(1.25f).build()));

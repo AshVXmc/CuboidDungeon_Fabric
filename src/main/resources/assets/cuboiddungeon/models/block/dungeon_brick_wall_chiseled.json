@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "cuboiddungeon:blocks/dungeon_brick_wall_cracked"
+    "all": "cuboiddungeon:blocks/dungeon_brick_wall_chiseled"
   }
 }

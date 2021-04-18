@@ -1,12 +1,8 @@
 package com.ashvxmc.cuboiddungeon.items;
 
-
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsage;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -23,7 +19,6 @@ public class BreezefruitTea extends Item {
         ItemStack itemStack = super.finishUsing(stack, world, item_user);
         return item_user instanceof PlayerEntity && ((PlayerEntity)item_user).abilities.creativeMode ? itemStack : new ItemStack(Items.GLASS_BOTTLE);
     }
-
 
 
     public int getMaxUseTime(ItemStack stack) {
