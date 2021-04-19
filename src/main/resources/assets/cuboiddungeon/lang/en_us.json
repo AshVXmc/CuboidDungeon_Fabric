@@ -10,14 +10,14 @@
   "item.cuboiddungeon.breezefruit_roll": "Breezefruit roll",
   "item.cuboiddungeon.breezefruit_pie": "Breezefruit pie",
   "item.cuboiddungeon.breezefruit_tea": "Breezefruit Tea",
-  "item.cuboiddungeon.blood_goblet_empty": "Empty Blood goblet",
-  "item.cuboiddungeon.blood_goblet_full": "Full Blood goblet",
-
+  "item.cuboiddungeon.hardwood_staff": "Hardwood staff",
+  "item.cuboiddungeon.cobalt": "Cobalt",
 
   "block.cuboiddungeon.dungeon_brick_wall": "Dungeon brick wall",
   "block.cuboiddungeon.dungeon_brick_wall_mossy": "Mossy dungeon brick wall",
   "block.cuboiddungeon.dungeon_brick_wall_cracked": "Cracked Dungeon brick wall",
   "block.cuboiddungeon.dungeon_brick_wall_chiseled": "Chiseled dungeon brick wall",
+  "block.cuboiddungeon.cobalt_ore": "Cobalt ore",
 
   "itemGroup.cuboiddungeon.dungeon_items": "Dungeon Items",
   "itemGroup.cuboiddungeon.dungeon_consumables": "Dungeon Consumables",
@@ -25,6 +25,7 @@
 
   "item.dagger.tooltip": "A small dagger made of iron and a wooden handle.",
   "item.poisoned_dagger.tooltip": "A poisonous dagger that inflicts poison. Lasts 5 seconds",
+  "item.hardwood_staff.tooltip": "A staff made out of wood with metal ends.",
 
   "item.cuboiddungeon.marsupial_rat_spawn_egg": "Marsupial Rat Spawn Egg",
   "entity.cuboiddungeon.marsupial_rat": "Marsupial rat",

@@ -22,7 +22,7 @@ public class RageStatusEffect extends StatusEffect {
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (entity instanceof PlayerEntity){
             // this drains hunger
-            ((PlayerEntity) entity).addExhaustion(0.02f);
+            ((PlayerEntity) entity).addExhaustion(0.075f);
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH,30,3));
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE,30,3));
         }

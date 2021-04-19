@@ -5,6 +5,7 @@ import com.ashvxmc.cuboiddungeon.entities.MarsupialRatEntity;
 import com.ashvxmc.cuboiddungeon.entities.RheumSlimeEntity;
 import com.ashvxmc.cuboiddungeon.items.*;
 import com.ashvxmc.cuboiddungeon.items.materials.ImbuedDaggerMaterials;
+import com.ashvxmc.cuboiddungeon.items.materials.StaffToolMaterials;
 import com.ashvxmc.cuboiddungeon.registry.ModBlocks;
 import com.ashvxmc.cuboiddungeon.registry.ModItems;
 import com.ashvxmc.cuboiddungeon.status_effects.RageStatusEffect;
@@ -28,9 +29,6 @@ public class Cuboiddungeon implements ModInitializer {
 
     // Universal mod ID
     public static final String MOD_ID = "cuboiddungeon";
-
-    // Custom Item class registries (EXCLUDING WEAPONS)
-    public static final BreezefruitTea BREEZEFRUIT_TEA = new BreezefruitTea(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).maxCount(1));
 
     // Item group registries
     public static final ItemGroup DUNGEON_ITEMS = FabricItemGroupBuilder.create(
@@ -77,6 +75,8 @@ public class Cuboiddungeon implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","breezefruit_tea"), new BreezefruitTea(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food((new FoodComponent.Builder().hunger(1).saturationModifier(0f).build()))));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon", "dagger"), new Dagger(new ToolMaterials()));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","poisoned_dagger"), new PoisonedDagger(new ImbuedDaggerMaterials()));
+        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","hardwood_staff"), new HardwoodStaff(new StaffToolMaterials()));
+
 
         // Register mob behaviors
         FabricDefaultAttributeRegistry.register(MARSUPIAL_RAT, MarsupialRatEntity.createMobAttributes());
