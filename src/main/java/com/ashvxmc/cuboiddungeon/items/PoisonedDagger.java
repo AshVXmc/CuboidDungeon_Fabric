@@ -1,6 +1,7 @@
 package com.ashvxmc.cuboiddungeon.items;
 
 import com.ashvxmc.cuboiddungeon.Cuboiddungeon;
+import com.ashvxmc.cuboiddungeon.items.materials.ImbuedDaggerMaterials;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
