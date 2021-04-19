@@ -23,7 +23,6 @@ public class ModBlocks {
     public static final Block DUNGEON_BRICK_WALL_CRACKED = new Block(FabricBlockSettings.copyOf(ModBlocks.DUNGEON_BRICK_WALL));
     public static final Block DUNGEON_BRICK_WALL_CHISELED = new Block(FabricBlockSettings.copyOf(ModBlocks.DUNGEON_BRICK_WALL));
     public static final Block DUNGEON_BRICK_WALL_CUT = new Block(FabricBlockSettings.copyOf(ModBlocks.DUNGEON_BRICK_WALL));
-
     public static final Block COBALT_ORE = new Block(FabricBlockSettings.of(Material.STONE)
             .breakByHand(false)
             .breakByTool(FabricToolTags.PICKAXES)
@@ -31,7 +30,6 @@ public class ModBlocks {
             .hardness(3)
             .resistance(30.0f)
             .sounds(BlockSoundGroup.STONE));
-
 
     // Register the blocks for it to appear in minecraft
     public static void registerBlocks(){

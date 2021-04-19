@@ -8,7 +8,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class RageStatusEffect extends StatusEffect {
-
     public RageStatusEffect() {
         super(StatusEffectType.BENEFICIAL, 0xc42e1d);
     }

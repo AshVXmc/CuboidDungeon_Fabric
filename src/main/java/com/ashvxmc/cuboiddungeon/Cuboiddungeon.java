@@ -44,7 +44,6 @@ public class Cuboiddungeon implements ModInitializer {
             .icon(() -> new ItemStack(ModItems.MARSUPIAL_RAT_SPAWN_EGG))
             .build();
 
-
     // Entity registries
     public static final EntityType<MarsupialRatEntity> MARSUPIAL_RAT = Registry.register(
             Registry.ENTITY_TYPE,
@@ -76,7 +75,6 @@ public class Cuboiddungeon implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon", "dagger"), new Dagger(new ToolMaterials()));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","poisoned_dagger"), new PoisonedDagger(new ImbuedDaggerMaterials()));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","hardwood_staff"), new HardwoodStaff(new StaffToolMaterials()));
-
 
         // Register mob behaviors
         FabricDefaultAttributeRegistry.register(MARSUPIAL_RAT, MarsupialRatEntity.createMobAttributes());
