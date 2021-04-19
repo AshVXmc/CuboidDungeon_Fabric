@@ -10,8 +10,8 @@ The mod requires:
 
 ## License
 
-The content in this mod is licensed under the [MIT License](https://github.com/AshVXmc/CuboidDungeon_Fabric1.16.5/blob/master/LICENSE.txt)
+The content in this mod is licensed under the [MIT License](https://github.com/AshVXmc/CuboidDungeon_Fabric1.16.5/blob/master/LICENSE.txt).
 
 ## Other 
 
-If you have questions feel free to DM me from my [discord server](https://discord.gg/Mw8sYAZ)
+If you have questions feel free to DM me from my [discord server](https://discord.gg/Mw8sYAZ).
