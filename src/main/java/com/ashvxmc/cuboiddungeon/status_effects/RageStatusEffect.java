@@ -2,9 +2,7 @@ package com.ashvxmc.cuboiddungeon.status_effects;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffectType;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class RageStatusEffect extends StatusEffect {
@@ -20,10 +18,10 @@ public class RageStatusEffect extends StatusEffect {
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (entity instanceof PlayerEntity){
-            // this drains hunger
-            ((PlayerEntity) entity).addExhaustion(0.075f);
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH,30,3));
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE,30,3));
+            ((PlayerEntity) entity).addExhaustion(0.08f);
+            entity.setMovementSpeed(2.5f);
+            entity.setAbsorptionAmount(10.0f);
+            entity.heal(15f);
         }
     }
 }

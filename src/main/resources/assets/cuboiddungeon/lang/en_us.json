@@ -12,6 +12,8 @@
   "item.cuboiddungeon.breezefruit_tea": "Breezefruit Tea",
   "item.cuboiddungeon.hardwood_staff": "Hardwood staff",
   "item.cuboiddungeon.cobalt": "Cobalt",
+  "item.cuboiddungeon.scroll_of_rage": "Scroll of Rage",
+
 
   "block.cuboiddungeon.dungeon_brick_wall": "Dungeon brick wall",
   "block.cuboiddungeon.dungeon_brick_wall_mossy": "Mossy dungeon brick wall",
@@ -26,6 +28,7 @@
   "item.dagger.tooltip": "A small dagger made of iron and a wooden handle.",
   "item.poisoned_dagger.tooltip": "A poisonous dagger that inflicts poison. Lasts 5 seconds",
   "item.hardwood_staff.tooltip": "A staff made out of wood with metal ends.",
+  "item.scroll_of_rage.tooltip": "An scroll written with ancient runes that will awaken rage within the reader",
 
   "item.cuboiddungeon.marsupial_rat_spawn_egg": "Marsupial Rat Spawn Egg",
   "entity.cuboiddungeon.marsupial_rat": "Marsupial rat",
