@@ -8,6 +8,8 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -60,7 +62,8 @@ public class MarsupialRatEntity extends PathAwareEntity implements IAnimatable {
     @Override
     protected void initGoals() {
         this.goalSelector.add(3,new MeleeAttackGoal(this,0.8f,false));
-        this.goalSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class, true, true));
+        this.goalSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class,true, true));
+        this.goalSelector.add(2,new FollowTargetGoal<>(this, WolfEntity.class,true,true));
         this.goalSelector.add(2, new LookAroundGoal(this));
     }
 
