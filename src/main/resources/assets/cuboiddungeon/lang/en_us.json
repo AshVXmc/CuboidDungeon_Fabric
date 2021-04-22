@@ -13,7 +13,8 @@
   "item.cuboiddungeon.hardwood_staff": "Hardwood staff",
   "item.cuboiddungeon.cobalt": "Cobalt",
   "item.cuboiddungeon.scroll_of_rage": "Scroll of Rage",
-
+  "item.cuboiddungeon.scroll_of_waves": "Scroll of Waves",
+  "item.cuboiddungeon.scroll_of_dispel": "Scroll of Dispel",
 
   "block.cuboiddungeon.dungeon_brick_wall": "Dungeon brick wall",
   "block.cuboiddungeon.dungeon_brick_wall_mossy": "Mossy dungeon brick wall",
@@ -26,9 +27,12 @@
   "itemGroup.cuboiddungeon.dungeon_monsters": "Dungeon Monsters",
 
   "item.dagger.tooltip": "A small dagger made of iron and a wooden handle.",
-  "item.poisoned_dagger.tooltip": "A poisonous dagger that inflicts poison. Lasts 5 seconds",
+  "item.poisoned_dagger.tooltip": "A poisonous dagger that inflicts poison. Lasts 5 seconds.",
   "item.hardwood_staff.tooltip": "A staff made out of wood with metal ends.",
-  "item.scroll_of_rage.tooltip": "An scroll written with ancient runes that will awaken rage within the reader",
+  "item.scroll_of_rage.tooltip": "Gives the rage status effect for 30s when read.",
+  "item.scroll_of_dispel.tooltip": "Removes one random effect when read.",
+  "item.scroll_of_waves.tooltip": "Gives Oceanic blessing when read.",
+  "item.scroll_of_waves2.tooltip": "Only works when read in rain or underwater",
 
   "item.cuboiddungeon.marsupial_rat_spawn_egg": "Marsupial Rat Spawn Egg",
   "entity.cuboiddungeon.marsupial_rat": "Marsupial rat",

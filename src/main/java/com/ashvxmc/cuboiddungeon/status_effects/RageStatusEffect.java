@@ -2,8 +2,11 @@ package com.ashvxmc.cuboiddungeon.status_effects;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.World;
 
 public class RageStatusEffect extends StatusEffect {
     public RageStatusEffect() {
@@ -18,10 +21,15 @@ public class RageStatusEffect extends StatusEffect {
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (entity instanceof PlayerEntity){
-            ((PlayerEntity) entity).addExhaustion(0.08f);
-            entity.setMovementSpeed(2.5f);
-            entity.setAbsorptionAmount(10.0f);
+            int tickAmount = 20;
+            ((PlayerEntity) entity).addExhaustion(0.05f);
+            entity.setMovementSpeed(3.5f);
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 30 * tickAmount,2));
+            entity.setAbsorptionAmount(8.0f);
             entity.heal(15f);
+            if(entity.isInLava()){
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE,5 * tickAmount,1));
+            }
         }
     }
 }

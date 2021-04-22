@@ -6,7 +6,9 @@ import com.ashvxmc.cuboiddungeon.entities.RheumSlimeEntity;
 import com.ashvxmc.cuboiddungeon.items.*;
 import com.ashvxmc.cuboiddungeon.items.materials.ImbuedDaggerMaterials;
 import com.ashvxmc.cuboiddungeon.items.materials.StaffToolMaterials;
+import com.ashvxmc.cuboiddungeon.items.scrolls.ScrollOfDispel;
 import com.ashvxmc.cuboiddungeon.items.scrolls.ScrollOfRage;
+import com.ashvxmc.cuboiddungeon.items.scrolls.ScrollOfWaves;
 import com.ashvxmc.cuboiddungeon.registry.ModBlocks;
 import com.ashvxmc.cuboiddungeon.registry.ModItems;
 import com.ashvxmc.cuboiddungeon.status_effects.RageStatusEffect;
@@ -96,6 +98,8 @@ public class Cuboiddungeon implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","poisoned_dagger"), new PoisonedDagger(new ImbuedDaggerMaterials()));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","hardwood_staff"), new HardwoodStaff(new StaffToolMaterials()));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_rage"), new ScrollOfRage(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
+        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_dispel"), new ScrollOfDispel(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
+        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_waves"), new ScrollOfWaves(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
         // Register mob behaviors
         FabricDefaultAttributeRegistry.register(MARSUPIAL_RAT, MarsupialRatEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(RHEUM_SLIME, RheumSlimeEntity.createMobAttributes());
