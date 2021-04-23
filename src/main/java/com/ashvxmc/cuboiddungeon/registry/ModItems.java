@@ -8,7 +8,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModItems {
-    // New scroll idea: removes one random status effect when read
     // Food items
     public static final Item FOOD_RATION = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(10).saturationModifier(5f).meat().build()));
     public static final Item PASTY = new Item(new Item.Settings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food(new FoodComponent.Builder().hunger(10).saturationModifier(5f).meat().build()));
