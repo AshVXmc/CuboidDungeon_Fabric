@@ -17,5 +17,6 @@ public class CuboidDungeonClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(Cuboiddungeon.RHEUM_SLIME,(dispatcher, context) -> new RheumSlimeEntityRenderer(dispatcher));
         EntityRendererRegistry.INSTANCE.register(Cuboiddungeon.MARSUPIAL_RAT, (dispatcher, context) -> new MarsupialRatEntityRenderer(dispatcher));
         EntityRendererRegistry.INSTANCE.register(Cuboiddungeon.DUNGEON_SNAKE, (dispatcher, context) -> new DungeonSnakeEntityRenderer(dispatcher));
+        EntityRendererRegistry.INSTANCE.register(Cuboiddungeon.STONE_TALUS, (dispatcher, context) -> new DungeonSnakeEntityRenderer(dispatcher));
     }
 }

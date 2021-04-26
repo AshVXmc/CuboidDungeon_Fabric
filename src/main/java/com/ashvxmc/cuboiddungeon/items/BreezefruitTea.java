@@ -19,8 +19,6 @@ public class BreezefruitTea extends Item {
         ItemStack itemStack = super.finishUsing(stack, world, item_user);
         return item_user instanceof PlayerEntity && ((PlayerEntity)item_user).abilities.creativeMode ? itemStack : new ItemStack(Items.GLASS_BOTTLE);
     }
-
-
     public int getMaxUseTime(ItemStack stack) {
         return 32;
     }

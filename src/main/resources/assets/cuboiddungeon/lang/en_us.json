@@ -15,24 +15,31 @@
   "item.cuboiddungeon.scroll_of_rage": "Scroll of Rage",
   "item.cuboiddungeon.scroll_of_waves": "Scroll of Waves",
   "item.cuboiddungeon.scroll_of_dispel": "Scroll of Dispel",
+  "item.cuboiddungeon.ring_of_power": "Ring of Power",
 
   "block.cuboiddungeon.dungeon_brick_wall": "Dungeon brick wall",
   "block.cuboiddungeon.dungeon_brick_wall_mossy": "Mossy dungeon brick wall",
   "block.cuboiddungeon.dungeon_brick_wall_cracked": "Cracked Dungeon brick wall",
   "block.cuboiddungeon.dungeon_brick_wall_chiseled": "Chiseled dungeon brick wall",
   "block.cuboiddungeon.cobalt_ore": "Cobalt ore",
+  "block.cuboiddungeon.cobalt_block": "Cobalt block",
 
   "itemGroup.cuboiddungeon.dungeon_items": "Dungeon Items",
   "itemGroup.cuboiddungeon.dungeon_consumables": "Dungeon Consumables",
   "itemGroup.cuboiddungeon.dungeon_monsters": "Dungeon Monsters",
 
   "item.dagger.tooltip": "A small dagger made of iron and a wooden handle.",
-  "item.poisoned_dagger.tooltip": "A poisonous dagger that inflicts poison. Lasts 5 seconds.",
+  "item.poisoned_dagger.tooltip": "A dagger imbued with poison concoctions.",
+  "item.poisoned_dagger2.tooltip": "Gives target Poison effect for 5 seconds",
   "item.hardwood_staff.tooltip": "A staff made out of wood with metal ends.",
   "item.scroll_of_rage.tooltip": "Gives the rage status effect for 30s when read.",
   "item.scroll_of_dispel.tooltip": "Removes one random effect when read.",
   "item.scroll_of_waves.tooltip": "Gives Oceanic blessing when read.",
   "item.scroll_of_waves2.tooltip": "Only works when read in rain or underwater",
+
+  "item.ring_of_power.tooltip": "Gives Strength effect when equipped",
+  "item.ring_level1.tooltip": "Level 1 Ring",
+
 
   "item.cuboiddungeon.marsupial_rat_spawn_egg": "Marsupial Rat Spawn Egg",
   "entity.cuboiddungeon.marsupial_rat": "Marsupial rat",

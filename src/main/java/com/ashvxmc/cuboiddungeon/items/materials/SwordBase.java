@@ -1,5 +1,6 @@
-package com.ashvxmc.cuboiddungeon.items;
+package com.ashvxmc.cuboiddungeon.items.materials;
 
+import com.ashvxmc.cuboiddungeon.items.weapons.Dagger;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SwordItem;

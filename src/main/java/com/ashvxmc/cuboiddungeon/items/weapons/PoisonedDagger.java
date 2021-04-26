@@ -1,4 +1,4 @@
-package com.ashvxmc.cuboiddungeon.items;
+package com.ashvxmc.cuboiddungeon.items.weapons;
 
 import com.ashvxmc.cuboiddungeon.Cuboiddungeon;
 import com.ashvxmc.cuboiddungeon.items.materials.ImbuedDaggerMaterials;
@@ -26,6 +26,7 @@ public class PoisonedDagger extends SwordItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
         tooltip.add(new TranslatableText("item.poisoned_dagger.tooltip").formatted(Formatting.DARK_PURPLE));
+        tooltip.add(new TranslatableText("item.poisoned_dagger2.tooltip").formatted(Formatting.BOLD));
     }
 
     @Override

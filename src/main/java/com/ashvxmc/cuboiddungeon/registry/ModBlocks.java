@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
@@ -30,15 +31,21 @@ public class ModBlocks {
             .hardness(3)
             .resistance(30.0f)
             .sounds(BlockSoundGroup.STONE));
-
-    // Register the blocks for it to appear in minecraft
+    public static final Block COBALT_BLOCK = new Block(FabricBlockSettings.of(Material.METAL)
+            .breakByHand(false)
+            .breakByTool(FabricToolTags.PICKAXES,2)
+            .requiresTool()
+            .hardness(3)
+            .resistance(3)
+            .sounds(BlockSoundGroup.NETHER_ORE));
+    // Block registry
     public static void registerBlocks(){
         Registry.register(Registry.BLOCK, new Identifier(Cuboiddungeon.MOD_ID,"dungeon_brick_wall"),DUNGEON_BRICK_WALL);
         Registry.register(Registry.BLOCK, new Identifier(Cuboiddungeon.MOD_ID,"dungeon_brick_wall_mossy"),DUNGEON_BRICK_WALL_MOSSY);
         Registry.register(Registry.BLOCK, new Identifier(Cuboiddungeon.MOD_ID,"dungeon_brick_wall_cracked"),DUNGEON_BRICK_WALL_CRACKED);
         Registry.register(Registry.BLOCK, new Identifier(Cuboiddungeon.MOD_ID,"dungeon_brick_wall_chiseled"),DUNGEON_BRICK_WALL_CHISELED);
         Registry.register(Registry.BLOCK, new Identifier(Cuboiddungeon.MOD_ID,"dungeon_brick_wall_cut"),DUNGEON_BRICK_WALL_CUT);
-
         Registry.register(Registry.BLOCK, new Identifier(Cuboiddungeon.MOD_ID,"cobalt_ore"),COBALT_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(Cuboiddungeon.MOD_ID,"cobalt_block"),COBALT_BLOCK);
     }
 }

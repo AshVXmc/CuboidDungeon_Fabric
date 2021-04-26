@@ -1,0 +1,9 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.stone_talus.placeholder": {
+			"loop": true
+		}
+	},
+	"geckolib_format_version": 2
+}

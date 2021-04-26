@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "cuboiddungeon:dungeon_brick_wall"
+  },
+  "result": "cuboiddungeon:dungeon_brick_wall_chiseled",
+  "count": 1
+}

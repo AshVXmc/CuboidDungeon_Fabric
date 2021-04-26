@@ -1,17 +1,23 @@
 # Cuboiddungeon (Fabric 1.16.5)
 
-Cuboiddungeon is a minecraft java edition mod for the 1.16.5 Fabric modloader. It adds a handful of enemies, weapons, items, spells, effects, and more! Its also inspired by games such as [Pixel dungeon](https://pixeldungeon.fandom.com/wiki/Main_Page) and its mod forks.
+Cuboiddungeon is a minecraft java edition mod for the 1.16.5 Fabric modloader. It adds a handful of enemies, weapons, items, spells, effects, and more! Its also inspired by games such as [Breath of the Wild](https://www.zelda.com/breath-of-the-wild/), [Pixel dungeon](https://pixeldungeon.fandom.com/wiki/Main_Page) and its mod forks.
 
 The mod requires:
-- [The Fabric Loader](https://fabricmc.net/use/)
-- [The Fabric API (put it in the mods folder)](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
-- [Geckolib Fabric (put it in the mods folder)](https://www.curseforge.com/minecraft/mc-mods/geckolib-fabric)
+- [The Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
+- [Geckolib Fabric API](https://www.curseforge.com/minecraft/mc-mods/geckolib-fabric)
+- [Trinkets API](https://www.curseforge.com/minecraft/mc-mods/trinkets-fabric)
 
+## How to Install
+
+1) Download the mod JAR file from CurseForge (LINK PENDING)
+2) Put the JAR file and its dependencies inside the `mods` folder
+3) Run the game
 
 ## License
 
 The content in this mod is licensed under the [MIT License](https://github.com/AshVXmc/CuboidDungeon_Fabric1.16.5/blob/master/LICENSE.txt).
 
-## Other 
+## Other notes
+ 
+If you ask for Forge I'll steal your kneecaps
 
-If you have questions feel free to DM me from my [discord server](https://discord.gg/Mw8sYAZ).
