@@ -4,7 +4,7 @@ import com.ashvxmc.cuboiddungeon.entities.DungeonSnakeEntity;
 import com.ashvxmc.cuboiddungeon.entities.MarsupialRatEntity;
 import com.ashvxmc.cuboiddungeon.entities.RheumSlimeEntity;
 import com.ashvxmc.cuboiddungeon.entities.StoneTalusEntity;
-import com.ashvxmc.cuboiddungeon.items.*;
+import com.ashvxmc.cuboiddungeon.items.BreezefruitTea;
 import com.ashvxmc.cuboiddungeon.items.materials.ImbuedDaggerMaterials;
 import com.ashvxmc.cuboiddungeon.items.materials.StaffToolMaterials;
 import com.ashvxmc.cuboiddungeon.items.materials.ToolMaterials;
@@ -115,7 +115,7 @@ public class Cuboiddungeon implements ModInitializer {
         TrinketSlots.addSlot(SlotGroups.HAND, Slots.RING, new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
 
 
-        // Register Items with custom classes (INCLUDING WEAPONS)
+        // less optimal way to register Items with custom classes (INCLUDING WEAPONS)
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","breezefruit_tea"), new BreezefruitTea(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food((new FoodComponent.Builder().hunger(1).saturationModifier(0f).build()))));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon", "dagger"), new Dagger(new ToolMaterials()));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","poisoned_dagger"), new PoisonedDagger(new ImbuedDaggerMaterials()));
@@ -124,6 +124,8 @@ public class Cuboiddungeon implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_dispel"), new ScrollOfDispel(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_waves"), new ScrollOfWaves(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","ring_of_power"),new RingOfPower());
+
+
         // Register mob behaviors
         FabricDefaultAttributeRegistry.register(MARSUPIAL_RAT, MarsupialRatEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(RHEUM_SLIME, RheumSlimeEntity.createMobAttributes());
