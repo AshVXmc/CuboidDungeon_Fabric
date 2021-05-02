@@ -2,6 +2,7 @@ package com.ashvxmc.cuboiddungeon.items.scrolls;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,18 +28,22 @@ public class ScrollOfDispel extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
-            Random random = new Random();
-            if (user.getStatusEffects().size() > 0);{
-                int StatusEffectIndex = random.nextInt(user.getStatusEffects().size());
-                StatusEffectInstance StatusEffectToGetRemoved = (StatusEffectInstance) user.getStatusEffects().toArray()[StatusEffectIndex];
-                user.removeStatusEffect(StatusEffectToGetRemoved.getEffectType());
-                user.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN,5,1);
-               // world.spawnEntity();
-                // TO SPAWN SHIT
+            if (!user.hasStatusEffect(StatusEffects.BLINDNESS)){
+                Random random = new Random();
+                user.getStatusEffects();
+                {
+                    int StatusEffectIndex = random.nextInt(user.getStatusEffects().size());
+                    StatusEffectInstance StatusEffectToGetRemoved = (StatusEffectInstance) user.getStatusEffects().toArray()[StatusEffectIndex];
+                    user.removeStatusEffect(StatusEffectToGetRemoved.getEffectType());
+                    user.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN,5,1);
+                    // world.spawnEntity();
+                }
+                if (!user.abilities.creativeMode) {
+                    itemStack.decrement(1);
+                }
+            } else if (user.hasStatusEffect(StatusEffects.BLINDNESS)){
+                user.sendMessage(Text.of("You can't read while blinded!"),false);
             }
-        }
-        if (!user.abilities.creativeMode) {
-            itemStack.decrement(1);
         }
         return TypedActionResult.success(itemStack,world.isClient);
     }

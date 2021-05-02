@@ -4,6 +4,7 @@ import com.ashvxmc.cuboiddungeon.Cuboiddungeon;
 import net.minecraft.client.item.TooltipContext;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,10 +34,13 @@ public class ScrollOfRage extends Item {
         if (!world.isClient) {
             user.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN,1.2f,1);
             user.addStatusEffect(new StatusEffectInstance(Cuboiddungeon.RAGE,600,1));
+            if (!user.abilities.creativeMode) {
+                itemStack.decrement(1);
+            }
+        } else if (user.hasStatusEffect(StatusEffects.BLINDNESS)){
+            user.sendMessage(Text.of("You can't read while blinded!"),false);
         }
-        if (!user.abilities.creativeMode) {
-            itemStack.decrement(1);
-        }
+
         return TypedActionResult.success(itemStack,world.isClient);
     }
 }

@@ -9,6 +9,7 @@ import com.ashvxmc.cuboiddungeon.items.materials.ImbuedDaggerMaterials;
 import com.ashvxmc.cuboiddungeon.items.materials.StaffToolMaterials;
 import com.ashvxmc.cuboiddungeon.items.materials.ToolMaterials;
 import com.ashvxmc.cuboiddungeon.items.scrolls.ScrollOfDispel;
+import com.ashvxmc.cuboiddungeon.items.scrolls.ScrollOfLunarBlessing;
 import com.ashvxmc.cuboiddungeon.items.scrolls.ScrollOfRage;
 import com.ashvxmc.cuboiddungeon.items.scrolls.ScrollOfWaves;
 import com.ashvxmc.cuboiddungeon.items.weapons.Dagger;
@@ -123,7 +124,9 @@ public class Cuboiddungeon implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_rage"), new ScrollOfRage(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_dispel"), new ScrollOfDispel(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_waves"), new ScrollOfWaves(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","ring_of_power"),new RingOfPower());
+        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_lunar_blessing"),new RingOfPower());
+        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","ring_of_power"),new ScrollOfLunarBlessing(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
+
 
 
         // Register mob behaviors
