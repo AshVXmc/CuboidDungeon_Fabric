@@ -25,8 +25,10 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
+import java.util.Random;
+
 public class DungeonSnakeEntity extends PathAwareEntity implements IAnimatable {
-    private AnimationFactory factory = new AnimationFactory(this);
+    private final AnimationFactory factory = new AnimationFactory(this);
 
     public DungeonSnakeEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
@@ -90,7 +92,12 @@ public class DungeonSnakeEntity extends PathAwareEntity implements IAnimatable {
                 }
 
                 if (difficulty  > 0) {
-                    ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, difficulty * 20, 0));
+                    Random random = new Random();
+                    int r = random.nextInt(2);
+                    // Each bite has a 1 in 3 chance to apply poison
+                    if (r == 0){
+                        ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, difficulty * 20, 0));
+                    }
                 }
             }
             return true;

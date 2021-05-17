@@ -20,24 +20,14 @@ public class ScrollOfLunarBlessing extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
             if (world.isNight()){
-                float MoonPhase = world.getDimension().getMoonPhase(world.getLunarTime());
-                if (MoonPhase == 0.0f){
-                    user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 480 * 20,1));
-                 // user.addStatusEffect(new StatusEffectInstance(StatusEffects.LUNAR_BLESSING,480 * 20,1));
-                }
-                else if (MoonPhase == 0.75f){
-                    user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 480 * 20,1));
-                }
-                else if (MoonPhase == 1.0f){
-                    user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 30 * 20,1));
-                }
-                // decrement stack
-                if (!user.abilities.creativeMode) {
-                    itemStack.decrement(1);
+                float moonPhase = world.getDimension().getMoonPhase(world.getLunarTime());
+
+                if (moonPhase == 0.0f){
+                    user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 5 * 20,1));
                 }
 
             } else if (user.hasStatusEffect(StatusEffects.BLINDNESS)){
-                    user.sendMessage(Text.of("You can't read while blinded!"),false);
+                user.sendMessage(Text.of("You can't read while blinded!"),false);
             }
         }
         return TypedActionResult.success(itemStack,world.isClient);

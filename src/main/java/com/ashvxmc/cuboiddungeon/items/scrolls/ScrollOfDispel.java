@@ -36,7 +36,7 @@ public class ScrollOfDispel extends Item {
                     StatusEffectInstance StatusEffectToGetRemoved = (StatusEffectInstance) user.getStatusEffects().toArray()[StatusEffectIndex];
                     user.removeStatusEffect(StatusEffectToGetRemoved.getEffectType());
                     user.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN,5,1);
-                    // world.spawnEntity();
+                    // world.spawnEntit);y(
                 }
                 if (!user.abilities.creativeMode) {
                     itemStack.decrement(1);

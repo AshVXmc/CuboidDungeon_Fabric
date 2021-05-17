@@ -49,6 +49,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import software.bernie.geckolib3.GeckoLib;
 
 public class Cuboiddungeon implements ModInitializer {
+
     // Universal mod ID
     public static final String MOD_ID = "cuboiddungeon";
     // Item group registries

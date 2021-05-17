@@ -4,6 +4,7 @@
   "package": "com.ashvxmc.cuboiddungeon.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "HuskEntityMixin"
   ],
   "client": [
   ],
