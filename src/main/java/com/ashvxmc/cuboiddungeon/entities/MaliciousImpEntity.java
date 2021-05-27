@@ -11,6 +11,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
@@ -25,21 +26,31 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
+import java.util.Objects;
 import java.util.Random;
 
-public class DungeonSnakeEntity extends PathAwareEntity implements IAnimatable {
+public class MaliciousImpEntity extends PathAwareEntity implements IAnimatable {
     private final AnimationFactory factory = new AnimationFactory(this);
 
-    public DungeonSnakeEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
+    public MaliciousImpEntity(EntityType<? extends PathAwareEntity> entityType, World world,PlayerEntity playerEntity) {
         super(entityType, world);
         this.ignoreCameraFrustum = true;
+        init(playerEntity);
+    }
+
+    private void init(PlayerEntity playerEntity){
+        if (playerEntity.isHolding(Items.GOLDEN_SWORD)){
+            Objects.requireNonNull(getAttributeInstance(EntityAttributes.GENERIC_ARMOR)).setBaseValue(5);
+            setHealth(getMaxHealth());
+        } 
     }
 
     // Animation controller
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event){
         if (this.isAttacking()){
             event.getController().setAnimation(
-                    new AnimationBuilder().addAnimation("animation.dungeonsnakemodel.walk",true)
+                    // to be added
+                    new AnimationBuilder().addAnimation("",true)
             );
             return PlayState.CONTINUE;
         }
@@ -68,6 +79,7 @@ public class DungeonSnakeEntity extends PathAwareEntity implements IAnimatable {
 
 
     public static DefaultAttributeContainer.Builder createMobAttributes(){
+        // this is a test for demon entities, remember to move this away
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.35F)
@@ -75,40 +87,6 @@ public class DungeonSnakeEntity extends PathAwareEntity implements IAnimatable {
                 .add(EntityAttributes.GENERIC_ARMOR)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,3)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE,12);
-    }
-
-    // poison bite attack
-    public boolean tryAttack(Entity target) {
-        if (super.tryAttack(target)) {
-            if (target instanceof LivingEntity) {
-                int difficulty = 0;
-                if (this.world.getDifficulty() == Difficulty.EASY){
-                    difficulty = 4;
-                }
-                else if (this.world.getDifficulty() == Difficulty.NORMAL) {
-                    difficulty  = 7;
-                }
-                else if (this.world.getDifficulty() == Difficulty.HARD) {
-                    difficulty  = 10;
-                }
-
-                if (difficulty  > 0) {
-                    Random random = new Random();
-                    int r = random.nextInt(3);
-                    // Each bite has a 1 in 3 chance to apply poison
-                    if (r == 0){
-                        ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, difficulty * 20, 0));
-                    }
-                }
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-    // Poison immunity
-    public boolean canHaveStatusEffect(StatusEffectInstance effect) {
-        return effect.getEffectType() != StatusEffects.POISON && super.canHaveStatusEffect(effect);
     }
 
     @Nullable

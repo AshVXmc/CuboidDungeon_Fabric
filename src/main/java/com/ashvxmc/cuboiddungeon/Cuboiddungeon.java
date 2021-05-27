@@ -33,6 +33,7 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -86,6 +87,7 @@ public class Cuboiddungeon implements ModInitializer {
             Registry.ENTITY_TYPE,
             new Identifier("cuboiddungeon", "dungeon_snake"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DungeonSnakeEntity::new).dimensions(EntityDimensions.changing(0.5f,0.75f)).build()
+
     );
     public static final EntityType<StoneTalusEntity> STONE_TALUS = Registry.register(
             Registry.ENTITY_TYPE,
@@ -97,7 +99,7 @@ public class Cuboiddungeon implements ModInitializer {
     public static final StatusEffect RAGE = new RageStatusEffect();
 
     // Features (Ores, structures, etc)
-    private static ConfiguredFeature<?, ?> ORE_COBALT_OVERWORLD = Feature.ORE
+    private static final ConfiguredFeature<?, ?> ORE_COBALT_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(
                     OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.COBALT_ORE.getDefaultState(),6))
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
@@ -128,13 +130,10 @@ public class Cuboiddungeon implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_lunar_blessing"),new RingOfPower());
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","ring_of_power"),new ScrollOfLunarBlessing(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
 
-
-
         // Register mob behaviors
         FabricDefaultAttributeRegistry.register(MARSUPIAL_RAT, MarsupialRatEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(RHEUM_SLIME, RheumSlimeEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(DUNGEON_SNAKE, DungeonSnakeEntity.createMobAttributes());
-        FabricDefaultAttributeRegistry.register(DUNGEON_SNAKE, StoneTalusEntity.createMobAttributes());
         // Register custom status effects
         Registry.register(Registry.STATUS_EFFECT, new Identifier("cuboiddungeon","rage"), RAGE);
         // Register custom feature generations

@@ -5,5 +5,5 @@ import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(HuskEntity.class)
 public class HuskEntityMixin {
-
+    // Remember to replace with the desert amulet after finished
 }

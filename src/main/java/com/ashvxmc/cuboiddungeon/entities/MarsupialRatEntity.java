@@ -68,6 +68,7 @@ public class MarsupialRatEntity extends PathAwareEntity implements IAnimatable {
     }
 
     public static DefaultAttributeContainer.Builder createMobAttributes(){
+        int armorValue;
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.2F)
