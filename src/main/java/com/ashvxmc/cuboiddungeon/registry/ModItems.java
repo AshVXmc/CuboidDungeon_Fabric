@@ -9,7 +9,6 @@ import com.ashvxmc.cuboiddungeon.items.scrolls.*;
 import com.ashvxmc.cuboiddungeon.items.weapons.Dagger;
 import com.ashvxmc.cuboiddungeon.items.weapons.HardwoodStaff;
 import com.ashvxmc.cuboiddungeon.items.weapons.PoisonedDagger;
-import com.ashvxmc.cuboiddungeon.items.wearables.RingOfPower;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -56,9 +55,6 @@ public class ModItems  {
     public static final PoisonedDagger POISONED_DAGGER = new PoisonedDagger(new ImbuedDaggerMaterials(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
     public static final HardwoodStaff HARDWOOD_STAFF = new HardwoodStaff(new StaffToolMaterials(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
 
-    public static final RingOfPower RING_OF_POWER = new RingOfPower();
-
-
 
     // Item Registries
     public static void registerItems() {
@@ -94,9 +90,6 @@ public class ModItems  {
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon", "dagger"), DAGGER);
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","poisoned_dagger"), POISONED_DAGGER);
         Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","hardwood_staff"), HARDWOOD_STAFF);
-
-
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","ring_of_power"), RING_OF_POWER);
 
     }
 }

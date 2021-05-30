@@ -6,6 +6,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.text.Text;
@@ -30,11 +31,13 @@ public class PoisonedDagger extends SwordItem {
     }
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity livingEntity) {
         // effect duration is in ticks (20 ticks = 1 second)
         target.applyStatusEffect(new StatusEffectInstance(StatusEffects.POISON,100,1));
-        return super.postHit(stack, target, attacker);
+        return super.postHit(stack, target, livingEntity);
     }
+
+
 
     @Override
     public boolean isEnchantable(ItemStack stack) {
