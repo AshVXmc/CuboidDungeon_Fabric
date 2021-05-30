@@ -22,6 +22,7 @@ import com.ashvxmc.cuboiddungeon.status_effects.RageStatusEffect;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
 import dev.emi.trinkets.api.TrinketSlots;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -31,6 +32,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
@@ -109,6 +111,7 @@ public class Cuboiddungeon implements ModInitializer {
             .spreadHorizontally()
             .repeat(15);
 
+
     @Override
     public void onInitialize() {
         // Register external registry classes and libraries
@@ -117,19 +120,6 @@ public class Cuboiddungeon implements ModInitializer {
         GeckoLib.initialize();
         // Trinket slots
         TrinketSlots.addSlot(SlotGroups.HAND, Slots.RING, new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
-
-
-        // less optimal way to register Items with custom classes (INCLUDING WEAPONS)
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","breezefruit_tea"), new BreezefruitTea(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_CONSUMABLE).food((new FoodComponent.Builder().hunger(1).saturationModifier(0f).build()))));
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon", "dagger"), new Dagger(new ToolMaterials()));
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","poisoned_dagger"), new PoisonedDagger(new ImbuedDaggerMaterials()));
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","hardwood_staff"), new HardwoodStaff(new StaffToolMaterials()));
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_rage"), new ScrollOfRage(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_dispel"), new ScrollOfDispel(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_waves"), new ScrollOfWaves(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","scroll_of_lunar_blessing"),new RingOfPower());
-        Registry.register(Registry.ITEM, new Identifier("cuboiddungeon","ring_of_power"),new ScrollOfLunarBlessing(new FabricItemSettings().group(Cuboiddungeon.DUNGEON_ITEMS)));
-
         // Register mob behaviors
         FabricDefaultAttributeRegistry.register(MARSUPIAL_RAT, MarsupialRatEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(RHEUM_SLIME, RheumSlimeEntity.createMobAttributes());
@@ -141,5 +131,24 @@ public class Cuboiddungeon implements ModInitializer {
                 new Identifier("cuboiddungeon", "ore_cobalt_overworld"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreCobaltOverworld.getValue(), ORE_COBALT_OVERWORLD );
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreCobaltOverworld);
+
+        // event callers
+        /*
+        SoulSandBlockInteractionCallback.SOUL_SAND_BLOCK_INTERACTION_CALLBACK_EVENT.register((player, world, hand, blockPos,soulSandBlock) -> {
+            if (player.getStackInHand(hand).isItemEqual(new ItemStack(Items.GLASS_BOTTLE)))
+            {
+                player.setStackInHand(hand, new ItemStack(ModItems.COBALT));
+                world.setBlockState(blockPos, Blocks.SOUL_SOIL.getDefaultState());
+
+                WitherSkeletonEntity witherSkeletonEntity = new WitherSkeletonEntity(EntityType.WITHER_SKELETON, world);
+                world.spawnEntity(witherSkeletonEntity);
+
+                player.playSound(SoundEvents.ITEM_BUCKET_FILL, 2.0F, 1.0F);
+                return ActionResult.success(world.isClient());
+            }
+            return ActionResult.FAIL;
+        });
+
+         */
     }
 }

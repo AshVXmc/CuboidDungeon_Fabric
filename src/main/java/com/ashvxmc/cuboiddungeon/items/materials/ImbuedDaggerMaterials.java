@@ -1,9 +1,13 @@
 package com.ashvxmc.cuboiddungeon.items.materials;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
 public class ImbuedDaggerMaterials implements ToolMaterial {
+
+    public ImbuedDaggerMaterials(FabricItemSettings group) {
+    }
 
     @Override
     public int getDurability() {

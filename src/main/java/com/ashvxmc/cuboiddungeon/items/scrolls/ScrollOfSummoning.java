@@ -2,7 +2,6 @@ package com.ashvxmc.cuboiddungeon.items.scrolls;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

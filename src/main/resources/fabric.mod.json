@@ -11,7 +11,7 @@
   "contact": {
   },
 
-  "license": "CC0-1.0",
+  "license": "",
   "icon": "assets/cuboiddungeon/icon.png",
 
   "environment": "*",
@@ -24,9 +24,10 @@
     ]
   },
   "mixins": [
+    "cuboiddungeon.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.11.3",
     "fabric": "*",
     "minecraft": "1.16.x"
   },

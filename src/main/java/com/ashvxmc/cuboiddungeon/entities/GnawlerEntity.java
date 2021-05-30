@@ -1,19 +1,18 @@
 package com.ashvxmc.cuboiddungeon.entities;
 
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityData;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -27,12 +26,11 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import java.util.Objects;
-import java.util.Random;
 
-public class MaliciousImpEntity extends PathAwareEntity implements IAnimatable {
+public class GnawlerEntity extends PathAwareEntity implements IAnimatable {
     private final AnimationFactory factory = new AnimationFactory(this);
 
-    public MaliciousImpEntity(EntityType<? extends PathAwareEntity> entityType, World world,PlayerEntity playerEntity) {
+    public GnawlerEntity(EntityType<? extends PathAwareEntity> entityType, World world, PlayerEntity playerEntity) {
         super(entityType, world);
         this.ignoreCameraFrustum = true;
         init(playerEntity);
@@ -42,7 +40,7 @@ public class MaliciousImpEntity extends PathAwareEntity implements IAnimatable {
         if (playerEntity.isHolding(Items.GOLDEN_SWORD)){
             Objects.requireNonNull(getAttributeInstance(EntityAttributes.GENERIC_ARMOR)).setBaseValue(5);
             setHealth(getMaxHealth());
-        } 
+        } // else if something something
     }
 
     // Animation controller

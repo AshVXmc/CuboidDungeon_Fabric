@@ -1,10 +1,14 @@
 package com.ashvxmc.cuboiddungeon.items.materials;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
 public class StaffToolMaterials implements ToolMaterial {
+    public StaffToolMaterials(FabricItemSettings group) {
+    }
+
     @Override
     public int getDurability() {
         return 150;
