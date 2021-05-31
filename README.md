@@ -5,7 +5,6 @@ Cuboiddungeon is a minecraft java edition mod for the 1.16.5 (Will be updated to
 The mod requires:
 - [The Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files)
 - [Geckolib Fabric API](https://www.curseforge.com/minecraft/mc-mods/geckolib-fabric/files)
-- [Trinkets API](https://www.curseforge.com/minecraft/mc-mods/trinkets-fabric/files)
 
 ## How to Install
 

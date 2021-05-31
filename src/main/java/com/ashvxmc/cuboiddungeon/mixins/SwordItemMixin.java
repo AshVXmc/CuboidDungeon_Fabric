@@ -1,6 +1,7 @@
 package com.ashvxmc.cuboiddungeon.mixins;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.item.*;
 import org.spongepowered.asm.mixin.Mixin;
 
@@ -12,7 +13,8 @@ public class SwordItemMixin extends ToolItem implements Vanishable {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-
-        return super.postHit(stack, target, attacker);
+        stack.damage(1, (HostileEntity)attacker, (e) -> {
+        });
+        return true;
     }
 }

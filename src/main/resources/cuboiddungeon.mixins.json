@@ -4,8 +4,6 @@
   "package": "com.ashvxmc.cuboiddungeon.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "HuskEntityMixin",
-    "SoulSandBlockMixin",
     "SwordItemMixin"
   ],
   "client": [],

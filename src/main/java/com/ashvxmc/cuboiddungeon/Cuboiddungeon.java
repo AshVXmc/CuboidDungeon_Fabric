@@ -11,18 +11,31 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.mob.WitherSkeletonEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.screen.slot.Slot;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
@@ -91,7 +104,6 @@ public class Cuboiddungeon implements ModInitializer {
             .spreadHorizontally()
             .repeat(15);
 
-
     @Override
     public void onInitialize() {
         // Register external registry classes and libraries
@@ -110,23 +122,31 @@ public class Cuboiddungeon implements ModInitializer {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreCobaltOverworld.getValue(), ORE_COBALT_OVERWORLD );
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreCobaltOverworld);
 
-        // event callers
-        /*
-        SoulSandBlockInteractionCallback.SOUL_SAND_BLOCK_INTERACTION_CALLBACK_EVENT.register((player, world, hand, blockPos,soulSandBlock) -> {
-            if (player.getStackInHand(hand).isItemEqual(new ItemStack(Items.GLASS_BOTTLE)))
-            {
-                player.setStackInHand(hand, new ItemStack(ModItems.COBALT));
-                world.setBlockState(blockPos, Blocks.SOUL_SOIL.getDefaultState());
+        /* EVENTS */
+        // Soul sand event
+        UseBlockCallback.EVENT.register((PlayerEntity player, World world, Hand hand, BlockHitResult blockHitResult) -> {
+            /*
+             fix problem where the bottles got consumed all at once
+             maybe get the amount of empty bottles in hand, create a var based of it and put it the the "count part
+             */
+            ItemStack itemStack = player.getStackInHand(hand);
+
+            if (player.getStackInHand(hand).getItem() == Items.GLASS_BOTTLE && world.getBlockState(blockHitResult.getBlockPos()).getBlock() == Blocks.SOUL_SAND) {
+
+                int currentlyEmptySlot = player.inventory.getEmptySlot();
+                player.inventory.insertStack(currentlyEmptySlot, new ItemStack(ModItems.SCROLL_OF_DISPEL,1));
+                itemStack.decrement(1);
+
+                world.setBlockState(blockHitResult.getBlockPos(), Blocks.SOUL_SOIL.getDefaultState() ,3);
+                player.playSound(SoundEvents.ITEM_BUCKET_FILL, 2.0F, 1.0F);
 
                 WitherSkeletonEntity witherSkeletonEntity = new WitherSkeletonEntity(EntityType.WITHER_SKELETON, world);
                 world.spawnEntity(witherSkeletonEntity);
 
-                player.playSound(SoundEvents.ITEM_BUCKET_FILL, 2.0F, 1.0F);
-                return ActionResult.success(world.isClient());
+                return ActionResult.success(world.isClient);
             }
-            return ActionResult.FAIL;
+            return ActionResult.PASS;
         });
 
-         */
     }
 }
