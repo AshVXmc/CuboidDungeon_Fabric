@@ -14,7 +14,6 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -25,13 +24,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -43,6 +40,8 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import software.bernie.geckolib3.GeckoLib;
+
+import java.util.Random;
 
 public class Cuboiddungeon implements ModInitializer {
 
@@ -122,31 +121,46 @@ public class Cuboiddungeon implements ModInitializer {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreCobaltOverworld.getValue(), ORE_COBALT_OVERWORLD );
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreCobaltOverworld);
 
-        /* EVENTS */
+
+
+        /*
+         *  EVENTS REGISTRIES
+         */
+
         // Soul sand event
         UseBlockCallback.EVENT.register((PlayerEntity player, World world, Hand hand, BlockHitResult blockHitResult) -> {
-            /*
-             fix problem where the bottles got consumed all at once
-             maybe get the amount of empty bottles in hand, create a var based of it and put it the the "count part
-             */
             ItemStack itemStack = player.getStackInHand(hand);
 
             if (player.getStackInHand(hand).getItem() == Items.GLASS_BOTTLE && world.getBlockState(blockHitResult.getBlockPos()).getBlock() == Blocks.SOUL_SAND) {
 
                 int currentlyEmptySlot = player.inventory.getEmptySlot();
-                player.inventory.insertStack(currentlyEmptySlot, new ItemStack(ModItems.SCROLL_OF_DISPEL,1));
+                Random random = new Random();
+                int randInt = random.nextInt(3);
+
+                if (!player.inventory.insertStack(new ItemStack(ModItems.BOTTLE_OF_SOULS))){
+                    player.dropItem(new ItemStack(ModItems.BOTTLE_OF_SOULS), false);
+                    if (randInt == 1){
+                        WitherSkeletonEntity witherSkeletonEntity = new WitherSkeletonEntity(EntityType.WITHER_SKELETON, world);
+                        world.spawnEntity(witherSkeletonEntity);
+                        witherSkeletonEntity.updatePosition(player.getX(),player.getY(),player.getZ());
+                    }
+                } else {
+                    player.inventory.insertStack(currentlyEmptySlot ,new ItemStack(ModItems.BOTTLE_OF_SOULS));
+                    if (randInt == 1){
+                        WitherSkeletonEntity witherSkeletonEntity = new WitherSkeletonEntity(EntityType.WITHER_SKELETON, world);
+                        world.spawnEntity(witherSkeletonEntity);
+                        witherSkeletonEntity.updatePosition(player.getX(),player.getY(),player.getZ());
+                    }
+                }
                 itemStack.decrement(1);
 
-                world.setBlockState(blockHitResult.getBlockPos(), Blocks.SOUL_SOIL.getDefaultState() ,3);
-                player.playSound(SoundEvents.ITEM_BUCKET_FILL, 2.0F, 1.0F);
 
-                WitherSkeletonEntity witherSkeletonEntity = new WitherSkeletonEntity(EntityType.WITHER_SKELETON, world);
-                world.spawnEntity(witherSkeletonEntity);
+                world.setBlockState(blockHitResult.getBlockPos(), Blocks.SOUL_SOIL.getDefaultState() ,3);
+                player.playSound(SoundEvents.ITEM_BOTTLE_FILL, 2.0F, 1.0F);
 
                 return ActionResult.success(world.isClient);
             }
             return ActionResult.PASS;
         });
-
     }
 }

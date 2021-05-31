@@ -1,4 +1,4 @@
-package com.ashvxmc.cuboiddungeon.items;
+package com.ashvxmc.cuboiddungeon.items.misc;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
